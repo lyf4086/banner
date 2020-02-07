@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./swiper.min.css" />
+    <link rel="stylesheet" href="./jianli.css">
+    <link rel="stylesheet" href="./animate.min.css">
+</head>
+<body>
+    <div class="swiper-container">  
+        <div class="swiper-wrapper">  
+            <div class="swiper-slide">
+                <div class="wrap">
+                    <img src="./jianli/g.webp" alt="">
+                    <img src="./jianli/r.webp" alt="">
+                    <img src="./jianli/j.webp" alt="">
+                    <img src="./jianli/l.webp" alt="">
+                </div>
+            </div>  
+            <div class="swiper-slide slide2">
+                <div class="title">
+
+                </div>
+                <div class="mes1">
+
+                </div>
+                <div class="imgwrap">
+
+                </div>
+                <div class="mes2">
+
+                </div>
+            </div>  
+            <div class="swiper-slide slide3">
+                <div class="title2"></div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="item">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+            </div> 
+            <div class="swiper-slide slide4">
+                <div class="title3"></div>
+                <div class="con"></div>
+            </div>
+        </div>  
+    </div> 
+</body>
+<script src="./swiper.min.js"></script>
+<script>
+    let imgs=document.querySelectorAll('.wrap img')
+    imgs[0].classList.add('animated','fadeInLeft')
+    imgs[1].classList.add('animated','fadeInRight')
+    imgs[2].classList.add('animated','fadeInDownBig')
+    imgs[3].classList.add('animated','fadeInUpBig')
+    let slider2=document.querySelector('.slide2')
+    let title1=slider2.querySelector('.title')
+    let mes1=slider2.querySelector('.mes1')
+    let imgwrap=slider2.querySelector('.imgwrap')
+    let mes2=slider2.querySelector('.mes2')
+    let slider3=document.querySelector('.slide3')
+    let title2=slider3.querySelector('.title2')
+    let leftList=slider3.querySelectorAll('.left')
+    let rightList=slider3.querySelectorAll('.right')
+    let slider4=document.querySelector('.slide4')
+    let title3=slider4.querySelector('.title3')
+    let con=slider4.querySelector('.con')
+
+    var swiper = new Swiper(".swiper-container", {  
+            // direction: "horizontal",
+            direction:'vertical',  
+            effect:"coverflow",
+           
+            on: {
+                transitionStart:function (){                   
+                    imgs[0].classList.remove('animated','fadeInLeft')
+                    imgs[1].classList.remove('animated','fadeInRight')
+                    imgs[2].classList.remove('animated','fadeInDownBig')
+                    imgs[3].classList.remove('animated','fadeInUpBig')
+                   
+                    title1.classList.remove('animated','fadeInUpBig')
+                    mes1.classList.remove('animated','fadeInLeft')
+                    imgwrap.classList.remove('animated','fadeInRight')
+                    mes2.classList.remove('animated','fadeInDownBig')
+
+                    title2.classList.remove('animated','fadeInUpBig')
+                    leftList.forEach(e => {
+                        e.classList.remove('animated','fadeInRight')
+                    });
+                    rightList.forEach(e => {
+                        e.classList.remove('animated','fadeInLeft')
+                    });
+
+                    title3.classList.remove('animated','rotateIn')
+                    con.classList.remove('animated','flipInX')
+                },
+                transitionEnd:function (){                                       
+                    imgs[0].classList.add('animated','fadeInLeft')
+                    imgs[1].classList.add('animated','fadeInRight')
+                    imgs[2].classList.add('animated','fadeInDownBig')
+                    imgs[3].classList.add('animated','fadeInUpBig')
+                   
+                    title1.classList.add('animated','fadeInUpBig')
+                    mes1.classList.add('animated','fadeInLeft')
+                    imgwrap.classList.add('animated','fadeInRight')
+                    mes2.classList.add('animated','fadeInDownBig')
+
+                    title2.classList.add('animated','fadeInUpBig')
+                    leftList.forEach(e => {
+                        e.classList.add('animated','fadeInRight')
+                    });
+                    rightList.forEach(e => {
+                        e.classList.add('animated','fadeInLeft')
+                    });
+
+                    title3.classList.add('animated','rotateIn')
+                    con.classList.add('animated','flipInX')
+                }
+            },
+    })
+</script>
+</html>
